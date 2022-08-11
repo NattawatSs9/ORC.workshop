@@ -48,3 +48,5 @@
 /Users/nattawat/Projects/ORC.workshop/ORC.workshop/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/nattawat/Projects/ORC.workshop/ORC.workshop/bin/Debug/netcoreapp3.1/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/nattawat/Projects/ORC.workshop/ORC.workshop/obj/Debug/netcoreapp3.1/ORC.workshop.MvcApplicationPartsAssemblyInfo.cs
+/Users/nattawat/Projects/ORC.workshop/ORC.workshop/bin/Debug/netcoreapp3.1/package-lock.json
+/Users/nattawat/Projects/ORC.workshop/ORC.workshop/bin/Debug/netcoreapp3.1/package.json

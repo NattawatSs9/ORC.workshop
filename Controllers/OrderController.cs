@@ -24,6 +24,24 @@ namespace ORC.workshop.Controllers
             _configuration = configuration;
         }
 
+        [Route("getNextNumber")]
+        [HttpGet]
+        public JsonResult GetNumber()
+        {
+            try
+            {
+                string sqlDataSource = _configuration.GetConnectionString("ORCdb");
+                JsonResult result = new JsonResult(new OrderService(sqlDataSource).GetNumber());
+                return result;
+            }
+            catch(Exception ex)
+            {
+                JsonResult result = new JsonResult(ex.Message);
+                result.StatusCode = 400;
+                return result;
+            }
+        }
+
         // GET: api/values
         [Route("getall")]
         [HttpGet]
@@ -51,7 +69,27 @@ namespace ORC.workshop.Controllers
         {
             try
             {
-                string sqlDataSource = _configuration.GetConnectionString("ORCdb");
+                if (order.BookingCode == "" || order.BookingCode == null)
+                {
+                    throw new ValidInputException("Booking Code's require.");
+                }
+                else if (order.CastingMethod == "" || order.CastingMethod == null)
+                {
+                    throw new ValidInputException("Casting Method's require.");
+                }
+                else if (order.ContactName == "")
+                {
+                    throw new ValidInputException("Contact Name's require.");
+                }
+                else if (order.Tel == "")
+                {
+                    throw new ValidInputException("Contact Telephone's require.");
+                }
+                else if (order.Quantity == 0)
+                {
+                    throw new ValidInputException("Quantity's require.");
+                }
+                    string sqlDataSource = _configuration.GetConnectionString("ORCdb");
                 JsonResult result = new JsonResult(new OrderService(sqlDataSource).AddOrder(order));
                 return result;
             }

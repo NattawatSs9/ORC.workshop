@@ -21,6 +21,7 @@ namespace ORC.workshop.Models
         public int PlantId { get; set; }
         public int SiteId { get; set; }
         public int Quotation { get; set; }
+        public int QC { get; set; }
         public Status_type Status { get; set; }
     }
 }
